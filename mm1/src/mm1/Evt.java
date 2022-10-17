@@ -1,38 +1,34 @@
-package mm1;
 
 public class Evt {
 	//date, arrivée/départ
-	private double datea;
-	private double dated;
-	//0 pour arrivée, 1 pour départ
+	private double datea, dated;
+	//numéro de l'événement
 	private int num;
-	private int etat;
-	private static int nbclient = 0;
-	
+	public static int nbclient = 0;
+
 	//arrivée d'un client
 	public Evt(double date) {
 		this.datea = date;
-		this.etat = 0;
-		this.num = Evt.nbclient;
-		Evt.nbclient++;
+		this.num = Evt.nbclient++;
 	}
-
-	//Depart d'un client
-	public void depart(double date) {
-		this.etat = 1;
-		this.dated = date;
+	//Fonction utilisé pour les tests
+	public static void Evtclean(){
+		nbclient = 0;
 	}
-	
+	public static void newclient(Evt evt){
+		evt.num = Evt.nbclient++;
+	}
 	public double getdatea() {
 		return this.datea;
-	}
-	public double getdated() {
-		return this.dated;
 	}
 	public int getnum() {
 		return this.num;
 	}
-	public int getetat() {
-		return this.etat;
+
+	public void setdated(double dated){
+		this.dated = dated;
+	}
+	public void setdatea(double datea){
+		this.datea = datea;
 	}
 }
